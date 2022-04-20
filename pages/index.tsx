@@ -9,7 +9,7 @@ type SuperStrongType = {
 };
 
 const SuperStrong = ({children}: SuperStrongType) => {
-  return <strong className='font-bold'>{children}</strong>;
+  return <strong className='font-bold text-slate-900'>{children}</strong>;
 };
 
 const Home: NextPage = () => {
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   return (
     <div className='flex flex-col justify-center items-center h-screen'>
       <TypeIt
-        className='text-5xl text-center mb-10'
+        className='text-5xl text-center mb-10 text-slate-900'
         element={"h3"}
         options={{
           strings: ["This will be typed!"],
