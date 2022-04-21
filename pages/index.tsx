@@ -13,19 +13,6 @@ const SuperStrong = ({children}: SuperStrongType) => {
 };
 
 const Home: NextPage = () => {
-  const [buttonText, setButtonText] = useState("Freeze");
-  const [instance, setInstance] = useState(null);
-
-  const toggleFreeze = () => {
-    if (instance.is("frozen")) {
-      instance.unfreeze();
-      setButtonText("Freeze");
-      return;
-    }
-
-    instance.freeze();
-    setButtonText("Unfreeze");
-  };
   return (
     <div className='flex flex-col justify-center items-center h-screen'>
       <TypeIt
@@ -40,16 +27,22 @@ const Home: NextPage = () => {
         Code for <SuperStrong>Beginners</SuperStrong>
       </TypeIt>
       <div className='App'>
-        <button onClick={toggleFreeze}>{buttonText}</button>
+        <span>Love </span>
 
         <TypeIt
           options={{loop: true}}
-          getAfterInit={(instance) => {
-            setInstance(instance);
-            return instance;
+          getBeforeInit={(instance) => {
+            return instance
+              .pause(750)
+              .delete(7)
+              .type("Front-end")
+              .pause(750)
+              .pause(750)
+              .delete(9)
+              .type("Technology");
           }}
         >
-          This will just keep on going.
+          Coding
         </TypeIt>
       </div>
     </div>
